@@ -36,16 +36,29 @@
          const idTd = document.createElement('td');
          const commentTd = document.createElement('td');
          const conditionWorkingTd = document.createElement('td');
+         const conditionCompleteTd = document.createElement('td'); //¥NEW
          const conditionDeleteTd = document.createElement('td');
-         // conditionWorkingTd.className = 'btn';//¥NEW
-         conditionWorkingTd.classList.add('btn'); //¥NEW
-         conditionDeleteTd.classList.add('btn', 'delete'); //¥NEW
+         conditionWorkingTd.classList.add('btn');
+         conditionCompleteTd.classList.add('btn', 'hidden'); //¥NEW
+         conditionDeleteTd.classList.add('btn', 'delete');
          // const getRemoveBtn = document.getElementsByClassName('delete'); //¥NEW
 
+         //¥削除機能:削除ボタンが押された時に押された要素を削除する
          conditionDeleteTd.addEventListener('click', () => {
             tasks.splice(index, 1);
             displayTasks();
             //return;
+         });
+
+         //^作業中、削除ボタンを押したときにタスクの状態を変える
+         conditionWorkingTd.addEventListener('click', () => {
+            conditionWorkingTd.classList.add('hidden');
+            conditionCompleteTd.classList.remove('hidden');
+         });
+
+         conditionCompleteTd.addEventListener('click', () => {
+            conditionWorkingTd.classList.remove('hidden');
+            conditionCompleteTd.classList.add('hidden');
          });
 
          addTaskTarget.appendChild(tr);
@@ -56,15 +69,14 @@
          commentTd.textContent = tasks[index].comment; // タスク入力値
          tr.appendChild(conditionWorkingTd); // 3つ目
          conditionWorkingTd.textContent = '作業中';
+         //! ※2つ目の3つ目- .hiddenで初期状態では不可視
+         tr.appendChild(conditionCompleteTd);// 3つ目※
+         conditionCompleteTd.textContent = '完了';
          tr.appendChild(conditionDeleteTd); // 4つ目
          conditionDeleteTd.textContent = '削除';
 
-         //¥削除機能:削除ボタンが押された時に押された要素を削除する
-
          const numOfTasks = addTaskTarget.childElementCount;
       });
-
-      //console.log(tasks); //!!!!デバック用_要削除!!
    };
 
    //追加ボタンクリック時にaddTask()を走らせる

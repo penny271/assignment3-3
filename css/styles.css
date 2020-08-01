@@ -21,6 +21,10 @@ input {
   color: #fff;
 }
 
+.btn.hidden {
+  display: none;
+}
+
 ul {
   margin: 0;
   padding: 0;

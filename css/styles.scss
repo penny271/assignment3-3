@@ -20,6 +20,10 @@ input {
       background-color: rgb(42, 75, 203);
       color: #fff;
    }
+
+   &.hidden {
+      display: none;
+   }
 }
 
 ul {
