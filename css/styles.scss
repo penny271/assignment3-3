@@ -1,0 +1,37 @@
+.radios {
+   margin: 0;
+   padding: 0;
+   // display: inline-block;
+}
+
+input {
+   margin: 0 5px 0 0;
+}
+
+.btn {
+   border: 1px solid rgb(196, 195, 195);
+   border-radius: 5px;
+   padding: 0 7px;
+   font-size: 12px;
+   background-color: #fff;
+   height: 20px;
+
+   &:hover {
+      background-color: rgb(42, 75, 203);
+      color: #fff;
+   }
+}
+
+ul {
+      margin: 0;
+      padding: 0;
+}
+
+li {
+   list-style: none;
+}
+
+// span {
+//    position: relative;
+//    top: -10px;
+// }
